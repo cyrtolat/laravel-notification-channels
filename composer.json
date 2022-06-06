@@ -1,0 +1,51 @@
+{
+    "name": "cyrtolat/laravel-channels",
+    "description": "A simple package for realization some laravel notification channels",
+    "homepage": "https://github.com/cyrtolat/laravel-channels",
+    "keywords": [
+        "laravel",
+        "channels",
+        "telegram",
+        "notifications"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Vladislav Tolkechev",
+            "email": "cyrtolat@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/support": "^7.0|^8.0|^9.0",
+        "illuminate/notifications": "^7.0|^8.0|^9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cyrtolat\\Channels\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cyrtolat\\Channels\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cyrtolat\\Channels\\ChannelServiceProvider"
+            ]
+        }
+    }
+}
