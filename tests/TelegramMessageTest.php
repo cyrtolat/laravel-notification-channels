@@ -2,21 +2,10 @@
 
 namespace Cyrtolat\Channels\Tests;
 
-use Cyrtolat\Channels\Telegram\MessageBuilder;
 use Cyrtolat\Channels\Telegram\TelegramMessage;
 
 class TelegramMessageTest extends TestCase
 {
-    /** @var MessageBuilder */
-    protected MessageBuilder $builder;
-
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->builder = new MessageBuilder();
-    }
-
     /**
      * Testing a constructor of TelegramMessage class.
      *
@@ -25,9 +14,12 @@ class TelegramMessageTest extends TestCase
     public function testConstructor()
     {
         $content = "Hello, world!";
-        $message = new TelegramMessage($content);
+        $channel = "1234567890";
 
-        $this->assertEquals($content, $message->text);
+        $message = new TelegramMessage($content, $channel);
+
+        $this->assertEquals($content, $message->getContent());
+        $this->assertEquals($channel, $message->getChannel());
     }
 
     /**
@@ -43,19 +35,18 @@ class TelegramMessageTest extends TestCase
         $disable_web_page_preview = true;
         $disable_notification = true;
 
-        $message = $this->builder->reset()
+        $message = TelegramMessage::create()
             ->channel($chat_id)
             ->content($text)
             ->parseModeHtml()
             ->disableNotification()
-            ->disableLinkPreview()
-            ->getMessage();
+            ->disableLinkPreview();
 
-        $this->assertEquals($message->text, $text);
-        $this->assertEquals($message->chat_id, $chat_id);
-        $this->assertEquals($message->parse_mode, $parse_mode);
-        $this->assertEquals($message->disable_web_page_preview, $disable_web_page_preview);
-        $this->assertEquals($message->disable_notification, $disable_notification);
+        $this->assertEquals($message->getContent(), $text);
+        $this->assertEquals($message->getChannel(), $chat_id);
+        $this->assertEquals($message->getParseMode(), $parse_mode);
+        $this->assertEquals($message->isWebPagePreviewDisable(), $disable_web_page_preview);
+        $this->assertEquals($message->isNotificationDisable(), $disable_notification);
     }
 
     /**
@@ -70,16 +61,15 @@ class TelegramMessageTest extends TestCase
             'text' => 'Hello, world!',
             'parse_mode' => 'HTML',
             'disable_web_page_preview' => true,
-            'disable_notification' => true,
+            'disable_notification' => true
         ];
 
-        $message = $this->builder->reset()
+        $message = TelegramMessage::create()
             ->channel($array['chat_id'])
             ->content($array['text'])
             ->disableNotification()
             ->disableLinkPreview()
-            ->parseModeHtml()
-            ->getMessage();
+            ->parseModeHtml();
 
         $this->assertEquals($message->toArray(), $array);
     }
@@ -99,10 +89,9 @@ class TelegramMessageTest extends TestCase
             'disable_notification' => false,
         ];
 
-        $message = $this->builder->reset()
+        $message = TelegramMessage::create()
             ->channel($array['chat_id'])
-            ->content($array['text'])
-            ->getMessage();
+            ->content($array['text']);
 
         $this->assertEquals($message->toJson(), json_encode($array));
     }

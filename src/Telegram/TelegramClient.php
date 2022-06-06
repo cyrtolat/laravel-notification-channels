@@ -39,18 +39,13 @@ final class TelegramClient
      * Sending a message to a chat.
      *
      * @param TelegramMessage $message
-     * @param string $channel
      * @throws TelegramException
      * @return void
      */
-    public function sendMessage(TelegramMessage $message, string $channel): void
+    public function sendMessage(TelegramMessage $message): void
     {
-        $uri = $this->baseUri . $this->token . '/sendMessage';
-
-        $this->sendRequest($uri, [
-            'form_params' => array_merge($message->toArray(), [
-                'chat_id' => $channel
-            ])
+        $this->sendRequest($this->baseUri . $this->token . '/sendMessage', [
+            'form_params' => $message->toArray()
         ]);
     }
 

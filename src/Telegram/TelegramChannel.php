@@ -2,6 +2,7 @@
 
 namespace Cyrtolat\Channels\Telegram;
 
+use Cyrtolat\Channels\Exceptions\TelegramException;
 use Illuminate\Notifications\Notification;
 
 /**
@@ -9,30 +10,38 @@ use Illuminate\Notifications\Notification;
  */
 final class TelegramChannel
 {
+    /** @var TelegramClient */
+    protected $telegram;
+
+    /** Channel constructor. */
+    public function __construct()
+    {
+        $this->telegram = new TelegramClient();
+    }
+
     /**
      * Determine if the notification should be sent.
      *
      * @param mixed $notifiable
      * @param Notification $notification
-     * @return void
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws TelegramException
      */
-    public function send($notifiable, Notification $notification): void
+    public function send($notifiable, Notification $notification)
     {
         $message = $notification->toTelegram($notifiable);
-        $channel = $message->chat_id ?: $notifiable->routeNotificationFor('telegram', $notification);
 
-        if ($message instanceof TelegramMessage) {
-            $client = new TelegramClient();
-            $client->sendMessage($message, $channel);
+        if (!$message instanceof TelegramMessage) {
+            throw TelegramException::invalidMessageInstance();
         }
 
-        if (is_string($message)) {
-            $message = (new MessageBuilder())
-                ->content($message)
-                ->getMessage();
-            $client = TelegramClient::getInstance();
-            $client->sendMessage($message, $channel);
+        if (blank($message->getChannel())) {
+            $message->channel($notifiable->routeNotificationFor('telegram', $notification));
         }
+
+        if (blank($message->getChannel())) {
+            throw TelegramException::invalidChannelProvided();
+        }
+
+        $this->telegram->sendMessage($message);
     }
 }
