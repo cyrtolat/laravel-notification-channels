@@ -93,7 +93,6 @@ class TestNotification extends Notification
             ->parseModeHtml();
     }
 }
-
 ```
 
 ## Testing
