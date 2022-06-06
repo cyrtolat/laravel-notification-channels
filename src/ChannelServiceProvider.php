@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyrtolat\Channels;
+namespace Cyrtolat\NotificationChannels;
 
 use Illuminate\Notifications\ChannelManager;
 use Illuminate\Support\Facades\Notification;

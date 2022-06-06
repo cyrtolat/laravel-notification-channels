@@ -1,7 +1,7 @@
 {
-    "name": "cyrtolat/laravel-channels",
+    "name": "cyrtolat/laravel-notification-channels",
     "description": "A simple package for realization some laravel notification channels",
-    "homepage": "https://github.com/cyrtolat/laravel-channels",
+    "homepage": "https://github.com/cyrtolat/laravel-notification-channels",
     "keywords": [
         "laravel",
         "channels",
@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Cyrtolat\\Channels\\": "src"
+            "Cyrtolat\\NotificationChannels\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Cyrtolat\\Channels\\Tests\\": "tests"
+            "Cyrtolat\\NotificationChannels\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,7 +44,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Cyrtolat\\Channels\\ChannelServiceProvider"
+                "Cyrtolat\\NotificationChannels\\ChannelServiceProvider"
             ]
         }
     }

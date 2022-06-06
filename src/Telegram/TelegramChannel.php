@@ -1,8 +1,8 @@
 <?php
 
-namespace Cyrtolat\Channels\Telegram;
+namespace Cyrtolat\NotificationChannels\Telegram;
 
-use Cyrtolat\Channels\Exceptions\TelegramException;
+use Cyrtolat\NotificationChannels\Exceptions\TelegramException;
 use Illuminate\Notifications\Notification;
 
 /**

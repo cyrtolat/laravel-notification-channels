@@ -1,7 +1,7 @@
 # Laravel Notification Channels
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/cyrtolat/laravel-channels?style=flat-square)](https://packagist.org/packages/cyrtolat/laravel-channels)
-[![License](https://img.shields.io/github/license/cyrtolat/laravel-channels?style=flat-square)](https://packagist.org/packages/cyrtolat/laravel-channels)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/cyrtolat/laravel-notification-channels?style=flat-square)](https://packagist.org/packages/cyrtolat/laravel-notification-channels)
+[![License](https://img.shields.io/github/license/cyrtolat/laravel-notification-channels?style=flat-square)](https://packagist.org/packages/cyrtolat/laravel-notification-channels)
 
 > **_NOTE:_**  The package is in a state of slow development and currently contains only a telegram channel
 
@@ -19,7 +19,7 @@
 Run the following command from you terminal:
 
 ```bash
-composer require cyrtolat/laravel-channels
+composer require cyrtolat/laravel-notification-channels
 ```
 
 ## Configuration
@@ -45,7 +45,7 @@ Configure your Telegram bot token and add channels as needed:
 The channel receives an instance of the TelegramMessage class. Return only it from the `toTelegram()' method of your notification. If you need to send a simple text message without additional settings, then you can do it as follows:
 
 ```php
-use Cyrtolat\Channels\Telegram\TelegramMessage;
+use Cyrtolat\NotificationChannels\Telegram\TelegramMessage;
 
 $message = new TelegramMessage("Hello, world!", "1234567890");
 ```
@@ -53,7 +53,7 @@ $message = new TelegramMessage("Hello, world!", "1234567890");
 You can also use the class self-building:
 
 ```php
-use Cyrtolat\Channels\Telegram\TelegramMessage;
+use Cyrtolat\NotificationChannels\Telegram\TelegramMessage;
 
 $message = TelegramMessage::create()
     ->channel("1234567890")
@@ -69,7 +69,7 @@ An example of a test notification is presented below:
 # Notifications/TestNotifications.php
 
 use Illuminate\Bus\Queueable;
-use Cyrtolat\Channels\Telegram\TelegramMessage;
+use Cyrtolat\NotificationChannels\Telegram\TelegramMessage;
 use Illuminate\Notifications\Notification;
 
 class TestNotification extends Notification

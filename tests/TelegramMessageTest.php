@@ -1,8 +1,8 @@
 <?php
 
-namespace Cyrtolat\Channels\Tests;
+namespace Cyrtolat\NotificationChannels\Tests;
 
-use Cyrtolat\Channels\Telegram\TelegramMessage;
+use Cyrtolat\NotificationChannels\Telegram\TelegramMessage;
 
 class TelegramMessageTest extends TestCase
 {

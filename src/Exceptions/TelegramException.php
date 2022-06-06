@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyrtolat\Channels\Exceptions;
+namespace Cyrtolat\NotificationChannels\Exceptions;
 
 class TelegramException extends ChannelException
 {

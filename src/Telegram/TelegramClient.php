@@ -1,12 +1,12 @@
 <?php
 
-namespace Cyrtolat\Channels\Telegram;
+namespace Cyrtolat\NotificationChannels\Telegram;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
-use Cyrtolat\Channels\Exceptions\TelegramException;
+use Cyrtolat\NotificationChannels\Exceptions\TelegramException;
 
 /**
  * Telegram client class.

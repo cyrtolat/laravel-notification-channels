@@ -1,5 +1,5 @@
 <?php
 
-namespace Cyrtolat\Channels\Exceptions;
+namespace Cyrtolat\NotificationChannels\Exceptions;
 
 abstract class ChannelException extends \Exception {}

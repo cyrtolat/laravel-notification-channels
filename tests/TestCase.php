@@ -1,8 +1,8 @@
 <?php
 
-namespace Cyrtolat\Channels\Tests;
+namespace Cyrtolat\NotificationChannels\Tests;
 
-use Cyrtolat\Channels\ChannelServiceProvider;
+use Cyrtolat\NotificationChannels\ChannelServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {

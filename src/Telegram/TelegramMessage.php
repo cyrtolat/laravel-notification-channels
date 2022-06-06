@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyrtolat\Channels\Telegram;
+namespace Cyrtolat\NotificationChannels\Telegram;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
