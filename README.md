@@ -45,7 +45,7 @@ use Cyrtolat\Channels\Telegram\TelegramMessage;
 $message = new TelegramMessage("Hello, world!", "1234567890");
 ```
 
-You can also use the class constructor:
+You can also use the class self-building:
 
 ```php
 use Cyrtolat\Channels\Telegram\TelegramMessage;
