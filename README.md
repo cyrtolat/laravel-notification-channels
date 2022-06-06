@@ -1,7 +1,7 @@
 # Laravel Notification Channels
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/cyrtolat/laravel-money?style=flat-square)](https://packagist.org/packages/cyrtolat/laravel-money)
-[![License](https://img.shields.io/github/license/cyrtolat/laravel-money?style=flat-square)](https://packagist.org/packages/cyrtolat/laravel-money)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/cyrtolat/laravel-channels?style=flat-square)](https://packagist.org/packages/cyrtolat/laravel-channels)
+[![License](https://img.shields.io/github/license/cyrtolat/laravel-channels?style=flat-square)](https://packagist.org/packages/cyrtolat/laravel-channels)
 
 ## Contents
 - [Installation](#installation)
