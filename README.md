@@ -58,7 +58,7 @@ $message = TelegramMessage::create()
     ->parseModeHtml();
 ```
 
-An example of a notification is presented below:
+An example of a test notification is presented below:
 
 ```php
 # Notifications/TestNotifications.php
