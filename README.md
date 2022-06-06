@@ -3,10 +3,13 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/cyrtolat/laravel-channels?style=flat-square)](https://packagist.org/packages/cyrtolat/laravel-channels)
 [![License](https://img.shields.io/github/license/cyrtolat/laravel-channels?style=flat-square)](https://packagist.org/packages/cyrtolat/laravel-channels)
 
+> **_NOTE:_**  The package is in a state of slow development and currently contains only a telegram channel
+
 ## Contents
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#Usage)
+    - [Telegram](#Telegram)
 - [Testing](#testing)
 - [Changelog](#changelog)
 - [License](#license)
@@ -36,6 +39,8 @@ Configure your Telegram bot token and add channels as needed:
 ```
 
 ## Usage
+
+### Telegram 
 
 The channel receives an instance of the TelegramMessage class. Return only it from the `toTelegram()' method of your notification. If you need to send a simple text message without additional settings, then you can do it as follows:
 
